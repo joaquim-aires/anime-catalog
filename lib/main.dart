@@ -2,14 +2,17 @@ import 'package:anime_list/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Animelist());
+  runApp(const Animelist());
 }
 
 class Animelist extends StatelessWidget {
-  Animelist({super.key});
+  const Animelist({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomePage());
+    return MaterialApp(
+        title: 'Anime Catalog',
+        theme: ThemeData(useMaterial3: true),
+        home: const HomePage());
   }
 }

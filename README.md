@@ -1,6 +1,38 @@
-# anime_list
+# Anime Catalog
 
-A new Flutter project.
+Anime Catalog is a Flutter application that  consume an API to fetch and display data.
+
+## Features
+
+- Display data fetched from the API: https://jikan.moe/
+- Render anime items in a GridView on the main screen.
+- Include a search bar to filter anime items based on user input.
+- Show a details page for each item displayed in the main interface.
+- Handle loading and error states while fetching data.
+
+## Screenshots
+
+### Home page
+
+![Home Page](screenshots/home_page.jpeg)
+
+### Loaging Page
+
+![Loading Page](screenshots/loading_page.jpeg)
+
+### Search Result Page
+
+![Search Result Page](screenshots/search_result_page.jpeg)
+
+### Details Page
+
+![Details Page](screenshots/details_page.jpeg)
+
+### Network Error Page
+
+![Network Error Page](screenshots/network_error_page.jpeg)
+
+
 
 ## Getting Started
 
