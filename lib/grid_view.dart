@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'details_page.dart';
+import 'widgets/gird_view_container.dart';
 
 class GridViewGenerator extends StatefulWidget {
   const GridViewGenerator({super.key, required this.animeData});
@@ -31,35 +32,7 @@ class _MyWidgetState extends State<GridViewGenerator> {
               ),
             );
           },
-          child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
-                  image: DecorationImage(
-                      image: NetworkImage(widget.animeData[index].image),
-                      fit: BoxFit.cover)),
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: 50,
-                  padding: const EdgeInsets.all(3),
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(8.0),
-                          bottomRight: Radius.circular(8.0)),
-                      color: Colors.white),
-                  width: double.infinity,
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(
-                        widget.animeData[index].name,
-                        style: const TextStyle(
-                            fontSize: 18, overflow: TextOverflow.ellipsis),
-                      ),
-                    ),
-                  ),
-                ),
-              )),
+          child: GridViewContainer(image: widget.animeData[index].image, name:widget.animeData[index].name)
         );
       },
     );
