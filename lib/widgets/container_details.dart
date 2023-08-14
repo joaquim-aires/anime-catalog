@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:anime_list/widgets/DetailsListView.dart';
+import 'package:anime_list/widgets/details_list_view.dart';
 
 class DetailsContainer extends StatefulWidget {
   final String image;

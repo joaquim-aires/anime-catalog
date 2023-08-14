@@ -1,6 +1,6 @@
 import 'package:anime_list/anime_model.dart';
 import 'package:flutter/material.dart';
-import 'widgets/ContainerDetails.dart';
+import 'widgets/container_details.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key, required this.detailsAnime});

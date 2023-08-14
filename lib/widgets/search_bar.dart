@@ -2,23 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:anime_list/debouncer.dart';
 
 class AnimeSearchBar extends StatefulWidget {
-  dynamic search;
+  final Function callback;
   final TextEditingController controler;
-  AnimeSearchBar({super.key, required this.search, required this.controler});
-  final debouncer = Debouncer(milliseconds: 1000);
+  const AnimeSearchBar({super.key, required this.callback, required this.controler});
+  
   @override
   State<AnimeSearchBar> createState() => _AnimeSearchBarState();
 }
 
 class _AnimeSearchBarState extends State<AnimeSearchBar> {
+final debouncer = Debouncer(milliseconds: 1000);
 
 
-  void debounceSearch(String text) {
-    print(text);
-    setState(() {
-      widget.search = text;
-    });
-  }
 
 
   @override
@@ -31,7 +26,7 @@ class _AnimeSearchBarState extends State<AnimeSearchBar> {
       child: TextField(
         controller: widget.controler,
         onChanged: (value) {
-          widget.debouncer.call(() => debounceSearch(value));
+          debouncer.call(() => widget.callback(value));
         },
         style:
         const TextStyle(color: Colors.white, fontSize: 20),
