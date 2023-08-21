@@ -8,7 +8,7 @@ class ApiResult {
     var url = Uri.parse('https://api.jikan.moe/v4/anime?q=$search&sfw');
     var response = await http.get(url);
 
-    if (response.statusCode == 200) {
+    if (response.statusCode >= 200 && response.statusCode < 300) {
       final List<AnimeModel> animeList = [];
       final apiResult = jsonDecode(response.body);
       apiResult['data'].map((item) {
@@ -17,10 +17,12 @@ class ApiResult {
       }).toList();
 
       return animeList;
-    } else if (response.statusCode == 404) {
-      throw NotFoundException('Erro ao buscar os dados');
+    } else if (response.statusCode >= 400 && response.statusCode < 499) {
+      throw NotFoundException('Network Error');
+    } else if (response.statusCode >= 500 && response.statusCode < 599) {
+      throw NotFoundException('Server Error');
     } else {
-      throw Exception('Url nao encontrada');
+      throw Exception('Url not found');
     }
   }
 }
